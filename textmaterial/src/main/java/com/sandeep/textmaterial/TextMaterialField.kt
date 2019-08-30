@@ -1,4 +1,4 @@
-package com.sandeep.textmaterial
+package drawable
 
 
 import android.animation.ObjectAnimator
@@ -27,8 +27,6 @@ import android.view.View
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import com.sandeep.textmaterial.R
-import com.sandeep.textmaterial.custom.ReactAnim
-import com.sandeep.textmaterial.custom.WrapDrawable
 import kotlin.math.roundToInt
 
 open class TextMaterialField: EditText {
@@ -122,8 +120,8 @@ open class TextMaterialField: EditText {
     private val errorTextRect = Rect()
     private var staticUnderline: RectF? = null
     private var errorUnderline: RectF? = null
-    private var animatedUnderline: ReactAnim? = null
-    private var cursorDrawable: WrapDrawable? = null
+    private var animatedUnderline: com.sandeep.textmaterial.custom.ReactAnim? = null
+    private var cursorDrawable: com.sandeep.textmaterial.custom.WrapDrawable? = null
 
     private var warningIcon: Bitmap? = null
     private var warningIconSize = 0f
@@ -460,7 +458,7 @@ open class TextMaterialField: EditText {
 
     private fun initAnimatedUnderline() {
         if (animatedUnderline != null) return
-        animatedUnderline = ReactAnim(
+        animatedUnderline = com.sandeep.textmaterial.custom.ReactAnim(
             measuredWidth.toFloat() / 2,
             measuredHeight.toFloat() - underlineHeight - paddingBottom + bottomUnderlineOffset,
             measuredWidth.toFloat() / 2,
@@ -608,7 +606,7 @@ open class TextMaterialField: EditText {
             field.set(editor, drawables)
         } catch (ex: Exception) {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
-                cursorDrawable = WrapDrawable(ColorDrawable(color))
+                cursorDrawable = com.sandeep.textmaterial.custom.WrapDrawable(ColorDrawable(color))
             }
         }
     }
