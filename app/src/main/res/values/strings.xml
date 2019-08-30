@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Text  Material</string>
+    
+    <string name="email">Email</string>
+    <string name="recipient">Recipient</string>
+    <string name="password">Password</string>
+    <string name="floating_error_incorrect_password">Incorrect password</string>
+</resources>
